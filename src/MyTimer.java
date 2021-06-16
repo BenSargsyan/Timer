@@ -33,7 +33,7 @@ public class MyTimer implements Runnable{
             if(seconds==0 && minutes>0)
             {
                 minutes--;
-                seconds+=60;
+                seconds+=59;
             }
 
             if(minutes==0 && hour>0)
