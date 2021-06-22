@@ -13,7 +13,7 @@ public class MyTimer implements Runnable{
             hour+=minutes/60;
             minutes=minutes%60;
         }
-        if(seconds>60) {
+        if(seconds>=60) {
         minutes+=seconds/60;
         seconds=seconds%60;
         }
@@ -30,16 +30,19 @@ public class MyTimer implements Runnable{
                 minutes=minutes%60;
             }
 
+            if(minutes==0 && hour>0 && seconds==0)
+            {
+                minutes+=59;
+                seconds+=59;
+                hour--;
+            }
+
+
+
             if(seconds==0 && minutes>0)
             {
                 minutes--;
-                seconds+=60;
-            }
-
-            if(minutes==0 && hour>0)
-            {
-                minutes+=59;
-                hour--;
+                seconds+=59;
             }
 
             System.out.println(hour+":"+minutes+":"+seconds);
